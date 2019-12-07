@@ -53,7 +53,7 @@ LunesBlockchain.prototype.getListBoard = function() {
         };
     };
     link.overrideMimeType('application/json');
-    link.open(LunesBlockchain.addresses_call.method, LunesBlockchain.addresses_call.url, true);
+    link.open(LunesBlockchain.addresses_call.method, LunesBlockchain.addresses_call.base_url, true);
     link.send(null);
     var JData = JSON.parse(data);
     var listboard = {list:[]}
@@ -78,6 +78,15 @@ LunesBlockchain.prototype.LunesTransferGame = function(player_address, score) {
         recipient: player_address,
         timestamp: 0
     };
-    JSON.stringify(JSONresult);
+    var data = JSON.stringify(JSONresult);
+    var link = new XMLHttpRequest();
+    link.onload = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            data = link.responseText;
+        };
+    };
+    link.overrideMimeType('application/json');
+    link.open(LunesBlockchain.gainscore.method, LunesBlockchain.gainscore.base_url, true);
+    link.send(data);
 }
 
