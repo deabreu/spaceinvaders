@@ -74,3 +74,36 @@ Other bits and pieces that are useful can be dropped here.
 ## Publishing
 
 On changes to the `master` branch, the GitHub Pages site will be automatically updated.
+
+
+## Hackathon Lunes
+
+O sistema de Blockchain Lunes vai ficar responsável por gerir a contagem de pontos dos jogadores. Os jogadores serão todos identificados pelo seu endereço na rede Lunes (o seu Address). O Address Lunes é uma string contendo um Hash de identificação do usuário do Blockchain.
+
+A interação com o Blockchain é feita a partir de chamadas à API da rede Lunes. Neste desafio de Hackathon, a chamada vai ser intemediada pelas funções `getPlayerScore`, `getListBoard` e `LunesTransferGame`.
+
+`getPlayerScore` retorna o Score do jogador como um número inteiro. `getListBoard` retorna um objeto JSON contendo um array de jogadores e seus Scores. O objeto JSON que grava cada jogador e seu score segue o padrão abaixo
+ 
+ ```
+listboard = {
+    list : [
+        { 
+            player_address : "string",
+            score : integer
+        }
+    ]
+}
+``` 
+ 
+ `LunesTransferGame` é a função que tranfere o score resultante do jogo para o jogador.
+ 
+ # O Desafio do Hackathon
+ 
+ Para o desafio deste Hackathon, pede às equipes participantes que organizem uma modificação deste jogo para que ele satisfaça os seguintes tópicos:
+ 
+1. Na tela de entrada, dada no `WelcomeState`, o jogador insira seu Address Lunes.
+2. Na tela de término da partida, dada no `GameOverState`, o jogador receba seus pontos no Score e mostre uma lista com os melhores jogadores registrados no Blockchain.
+
+Além disto, a equipe deverá compatibilizar em sua solução o uso dos elementos gráficos da Lunes disponibilizados na pasta `/js/res`.
+
+### Bom divertimento. HACK THE WORLD!!!
